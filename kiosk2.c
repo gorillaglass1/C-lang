@@ -87,7 +87,6 @@ int main(void){
             count += total;
             sales += totalPrice;
             printf("\n총 %d개 제품 %d원입니다. 안녕히가십시오.\n", total, totalPrice);
-            printf("\n-----반갑습니다-----\n");
             
         }
         }
