@@ -2,52 +2,53 @@
 int selectFunction(char product[]);
 
 int main(void){
-    printf("-----È¯¿µÇÕ´Ï´Ù-----\n");
+    printf("-----í™˜ì˜í•©ë‹ˆë‹¤-----\n");
     int kiosk = 10;
     int count = 0;
     int sales = 0;
     int total = 0;
     int totalPrice = 0;
-    printf("1À» ÀÔ·ÂÇÏ°í Å°¿À½ºÅ©¸¦ ½ÇÇàÇÏ¼¼¿ä\n");
-    printf("Á¾·á: 0\n ÀÔ·Â: ");
-    scanf("%d", &kiosk); //½ÇÇà ÀÇ»ç È®ÀÎ¿ë
+    printf("1ì„ ì…ë ¥í•˜ê³  í‚¤ì˜¤ìŠ¤í¬ë¥¼ ì‹¤í–‰í•˜ì„¸ìš”\n");
+    printf("ì¢…ë£Œ: 0\n ì…ë ¥: ");
+    scanf("%d", &kiosk); //ì‹¤í–‰ ì˜ì‚¬ í™•ì¸ìš©
        
-        while (kiosk == 1) //Å°¿À½ºÅ© ¿µ¿ª
+        while (kiosk == 1) //í‚¤ì˜¤ìŠ¤í¬ ì˜ì—­
         {   
+            printf("\n-----ë°˜ê°‘ìŠµë‹ˆë‹¤-----\n");
             int order = 10;
             total = 0;
             totalPrice = 0;
-            printf("ÁÖ¹®À» ½ÃÀÛÇÏ·Á¸é 1À» ÀÔ·ÂÇÏ¼¼¿ä\n Å°¿À½ºÅ© Á¾·á: 0\n ÀÔ·Â: ");
+            printf("ì£¼ë¬¸ì„ ì‹œì‘í•˜ë ¤ë©´ 1ì„ ì…ë ¥í•˜ì„¸ìš”\n í‚¤ì˜¤ìŠ¤í¬ ì¢…ë£Œ: 0\n ì…ë ¥: ");
             scanf("%d", &order);
             if (order == 0)
             {
                 break;
             }
-            if (order == 1) //ÁÖ¹®Ç¥
+            if (order == 1) //ì£¼ë¬¸í‘œ
             {
                 
-                char menu1[] = "1. Å¬·´»÷µåÀ§Ä¡";
-                char menu2[] = "2. ÇÜÄ¡Áî»÷µåÀ§Ä¡";
-                char menu3[] = "3. Äİ¶ó";
-                char menu4[] = "4. »çÀÌ´Ù";
-                char menu5[] = "5. ¿À·»ÁöÁÖ½º";
+                char menu1[] = "1. í´ëŸ½ìƒŒë“œìœ„ì¹˜";
+                char menu2[] = "2. í–„ì¹˜ì¦ˆìƒŒë“œìœ„ì¹˜";
+                char menu3[] = "3. ì½œë¼";
+                char menu4[] = "4. ì‚¬ì´ë‹¤";
+                char menu5[] = "5. ì˜¤ë Œì§€ì£¼ìŠ¤";
                 int price1 = 6000;
                 int price2 = 7000;
                 int price3 = 2000;
                 int price5 = 2500;
-                printf("\n--¸Ş´º--\n");
-                printf("%s %d¿ø\n", menu1, price1);
-                printf("%s %d¿ø\n", menu2, price2);
-                printf("%s %d¿ø\n", menu3, price3);
-                printf("%s %d¿ø\n", menu4, price3);
-                printf("%s %d¿ø\n", menu5, price5);
+                printf("\n--ë©”ë‰´--\n");
+                printf("%s %dì›\n", menu1, price1);
+                printf("%s %dì›\n", menu2, price2);
+                printf("%s %dì›\n", menu3, price3);
+                printf("%s %dì›\n", menu4, price3);
+                printf("%s %dì›\n", menu5, price5);
                 printf("------------------------------\n");
 
                 int nextOrder = 1;
-                while (nextOrder == 1) //ÁÖ¹®ÆäÀÌÁö
+                while (nextOrder == 1) //ì£¼ë¬¸í˜ì´ì§€
                 {
                 int select = 0;
-                printf("\nÁÖ¹®ÇÏ½Ã·Á¸é ÇØ´ç »óÇ°ÀÇ ¹øÈ£¸¦ ÀÔ·ÂÇÏ½Ê½Ã¿À\n ÀÔ·Â: ");
+                printf("\nì£¼ë¬¸í•˜ì‹œë ¤ë©´ í•´ë‹¹ ìƒí’ˆì˜ ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì‹­ì‹œì˜¤\n ì…ë ¥: ");
                 scanf("%d", &select);
 
                 if(select == 1) {
@@ -76,7 +77,7 @@ int main(void){
                     totalPrice += price5 * innerCount;
                 }
 
-                printf("\nÁÖ¹®À» Ãß°¡ÇÏ·Á¸é 1 Á¾·áÇÏ·Á¸é 0À» ÀÔ·ÂÇÏ¼¼¿ä\n ÀÔ·Â: ");
+                printf("\nì£¼ë¬¸ì„ ì¶”ê°€í•˜ë ¤ë©´ 1 ì¢…ë£Œí•˜ë ¤ë©´ 0ì„ ì…ë ¥í•˜ì„¸ìš”\n ì…ë ¥: ");
                 scanf("%d", &select);
                 if (select == 0) 
                 {
@@ -85,20 +86,20 @@ int main(void){
             }
             count += total;
             sales += totalPrice;
-            printf("\nÃÑ %d¿øÀÔ´Ï´Ù. ¾È³çÈ÷°¡½Ê½Ã¿À.\n", totalPrice);
-            printf("\n-----¹İ°©½À´Ï´Ù-----\n");
+            printf("\nì´ %dê°œ ì œí’ˆ %dì›ì…ë‹ˆë‹¤. ì•ˆë…•íˆê°€ì‹­ì‹œì˜¤.\n", total, totalPrice);
+            printf("\n-----ë°˜ê°‘ìŠµë‹ˆë‹¤-----\n");
             
         }
         }
-        printf("\nÃÑ ÆÇ¸Å °³¼ö´Â %d°³, ÃÑ ¸ÅÃâÀº %d¿ø ÀÔ´Ï´Ù.", count, sales);
+        printf("\nì´ íŒë§¤ ê°œìˆ˜ëŠ” %dê°œ, ì´ ë§¤ì¶œì€ %dì› ì…ë‹ˆë‹¤.", count, sales);
     return 0;
 }
 
 int selectFunction(char product[]) 
 {
     int innerCount = 0;
-    printf("\n%s¸¦ ¸î°³ ÁÖ¹®ÇÏ½Ã°Ú½À´Ï±î?\n ÀÔ·Â: ", product);
+    printf("\n%së¥¼ ëª‡ê°œ ì£¼ë¬¸í•˜ì‹œê² ìŠµë‹ˆê¹Œ?\n ì…ë ¥: ", product);
     scanf("%d", &innerCount);
-    printf("\n%s¸¦ %d°³ ÁÖ¹®ÇÕ´Ï´Ù\n", product, innerCount);
+    printf("\n%së¥¼ %dê°œ ì£¼ë¬¸í•©ë‹ˆë‹¤\n", product, innerCount);
     return innerCount;
 }
