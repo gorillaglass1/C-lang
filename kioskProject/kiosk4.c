@@ -1,10 +1,12 @@
 #include <stdio.h>
+#include <stdlib.h>
+
 
 typedef struct menuboard {
-    int num;
-    char* menu;
-    int price;
-    char* character;
+int num;
+char* menu;
+int price;
+char* character;
 } Menu;
 
 const Menu menu[5] = {
@@ -15,25 +17,31 @@ const Menu menu[5] = {
     {5, "오렌지주스", 2500, "비타민 C를 함유한 상큼한 오렌지주스"}
 };
 
-int orderedList[5] = {0, 0, 0, 0, 0}; //인덱스 = 메뉴번호, 값 = 주문 개수
-int totalPriceCount(int price, int count);
+void OrderMenu(int orderedList[], int* total, int* totalPrice);
+void showCart(int orderedList[]);
 
 int main(void){
     printf("-----환영합니다-----\n"); //시스템 ex). windows
     int kiosk, order = 10;
-    int count, sales, total, totalPrice, orderCount, select = 0;
+    int count, sales, total, totalPrice = 0;
+
     printf("1을 입력하고 키오스크를 실행하세요\n");
     printf("종료: 0\n입력: ");
     scanf("%d", &kiosk); //실행 의사 확인용
-       
+
         while (kiosk == 1) //키오스크 영역
         {   
-            int orderedList[5] = {0, 0, 0, 0, 0}; //인덱스 = 메뉴번호, 값 = 주문 개수
             printf("\n-----반갑습니다-----\n");
             total = 0;
             totalPrice = 0;
+            int* orderedList = malloc(sizeof(int) * (sizeof(menu) / sizeof(menu[0])));  //인덱스 = 메뉴번호, 값 = 주문 개수
+            for(int i = 0; i < (sizeof(menu) / sizeof(menu[0])); i++) {
+                orderedList[i] = 0;
+            }
+            // memset(orderedList, 0, sizeof(int) * (sizeof(menu) / sizeof(menu[0]))); //한 번에 초기화하는 방법
             printf("주문을 시작하려면 1을 입력하세요\n키오스크 종료: 0\n입력: ");
             scanf("%d", &order);
+            
             if (order == 0)
             {
                 break;
@@ -41,41 +49,45 @@ int main(void){
             if (order == 1) //주문표
             {
                 printf("\n--메뉴--\n");
-                for(int i = 0; i < 5; i++) {
+                for(int i = 0; i < (sizeof(menu) / sizeof(menu[0])); i++) {
                     printf("%d번 메뉴: %s %d원\n %s\n", menu[i].num, menu[i].menu, menu[i].price, menu[i].character);
                     printf("------------------------------\n\n");
                 }
+                
                 int nextOrder = 1;
                 while (nextOrder == 1) //주문페이지
                 {
-                select = 0;
-                orderCount = 0;
-                printf("\n주문하시려면 해당 상품의 번호와 개수를 입력하십시오 ex. 1 2 = 클럽샌드위치 2개\n입력: ");
-                scanf("%d %d", &select, &orderCount);
-
-                orderedList[(select-1)] += orderCount;
-                printf("%s가 %d개 주문되었습니다.\n\n", menu[(select-1)].menu, orderCount);
-                total += orderCount;
-                totalPrice += totalPriceCount(menu[(select-1)].price, orderCount);
-
-                printf("\n\n===장바구니===\n:");
-                    for(int i = 0; i < 5; i++) {
-                        if(orderedList[i] != 0) 
-                            printf("  %s %d개 ||", menu[i].menu, orderedList[i]);
-                    }
-                printf("\n\n주문을 추가하려면 1 종료하려면 0을 입력하세요\n입력: ");
-                scanf("%d", &nextOrder);
-            }
+                    OrderMenu(orderedList, &total, &totalPrice);
+                    showCart(orderedList);
+                    printf("\n\n주문을 추가하려면 1 종료하려면 0을 입력하세요\n입력: ");
+                    scanf("%d", &nextOrder);
+                }
             count += total;
             sales += totalPrice;
             printf("\n총 %d개 상품 %d원입니다. 안녕히가십시오.\n", total, totalPrice);
-            
-        }
+            free(orderedList);
+            }
         }
         printf("\n총 판매 개수는 %d개, 총 매출은 %d원 입니다.", count, sales);
     return 0;
 }
 
-int totalPriceCount(int price, int count) {
-    return price * count;
+void OrderMenu(int orderedList[], int* total, int* totalPrice) {
+    int select = 0;
+    int orderCount = 0;
+    printf("\n주문하시려면 해당 상품의 번호와 개수를 입력하십시오 ex. 1 2 = 클럽샌드위치 2개\n입력: ");
+    scanf("%d %d", &select, &orderCount);
+
+    orderedList[(select-1)] += orderCount;
+    printf("%s가 %d개 주문되었습니다.\n\n", menu[(select-1)].menu, orderCount);
+    *total += orderCount;
+    *totalPrice += menu[(select-1)].price * orderCount;
+}
+
+void showCart(int orderedList[]) {
+    printf("\n\n===장바구니===\n:");
+    for(int i = 0; i < (sizeof(menu) / sizeof(menu[0])); i++) {
+        if(orderedList[i] != 0) 
+        printf("  %s %d개 ||", menu[i].menu, orderedList[i]);
+    }
 }
