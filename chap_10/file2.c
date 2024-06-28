@@ -4,7 +4,7 @@
 
 int main(void) {
     char line[MAX];
-    FILE * file = fopen("c:\\Users\\hjseo\\Documents\\C\\chap_10\\assets\\test1.txt", "rb");
+    FILE * file = fopen("c:\\Users\\user\\Documents\\C\\chap_10\\assets\\test1.txt", "rb");
     if (file == NULL) {
         printf("파일 열기 실패\n");
         return 1;
