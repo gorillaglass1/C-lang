@@ -7,7 +7,7 @@ int main(void) {
     char str2[MAX];
     int num[6] = {0};
     int bonus = 0;
-    FILE * file = fopen("c:\\Users\\hjseo\\Documents\\C\\chap_10\\assets\\test2.txt", "rb");
+    FILE * file = fopen("c:\\Users\\user\\Documents\\C\\chap_10\\assets\\test2.txt", "rb");
     if (file == NULL) {
         printf("파일 열기 실패\n");
         return 1;
