@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 int main(void) {
-    FILE * file = fopen("c:\\Users\\hjseo\\Documents\\C\\chap_10\\assets\\test1.txt", "wb");
+    FILE * file = fopen("c:\\Users\\user\\Documents\\C\\chap_10\\assets\\test1.txt", "wb");
     if (file == NULL) {
         printf("파일 열기 실패\n");
         return 1;
