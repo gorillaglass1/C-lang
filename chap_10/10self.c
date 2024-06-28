@@ -6,7 +6,7 @@ int main() {
     char *str2;
     char *answer;
 
-    FILE *file = fopen("c:\\Users\\hjseo\\Documents\\C\\chap_10\\assets\\word.txt", "rb");
+    FILE *file = fopen("c:\\Users\\user\\Documents\\C\\chap_10\\assets\\word.txt", "rb");
 
     if (file == NULL) {
         printf("파일에서 문제가 발생하였습니다.");
