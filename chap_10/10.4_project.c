@@ -30,7 +30,7 @@ int main(void) {
     
     if (strcmp(password, "skehzheld") == 0) {
         printf("비밀번호 확인 완료\n");
-        char *fileName = "c:\\Users\\hjseo\\Documents\\C\\chap_10\\assets\\secretdiary.txt";
+        char *fileName = "c:\\Users\\user\\Documents\\C\\chap_10\\assets\\secretdiary.txt";
         FILE *file = (fileName, "a+b");
         if (file == NULL) {
             printf("파일 열기 실패\n");
